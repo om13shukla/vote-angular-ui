@@ -25,11 +25,12 @@ export class AppComponent {
 
   usrNameAction(){
     console.log("UserName = "+this.usrName)
+    this.loadItems()
     this.showForm = false;
     this.showData = true;
   }
-  loadUser() {
-    this.appService.getUsers().subscribe(data => this.user = data);
+  loadItems() {
+    this.appService.getItems().subscribe(data => this.user = data);
   }
 
 }
