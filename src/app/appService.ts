@@ -15,15 +15,18 @@ export class AppService {
     return this.http.get(`http://hidden-chamber-59565.herokuapp.com/voter/listVoters`)
     .map((res:Response) => res.json());
   }
-  addVote(userName:String, data){
+  addVote(userName, data){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let url = "http://hidden-chamber-59565.herokuapp.com/voter/listVoters/"+userName+"/vote"
-    return this.http.post(url, data, options)
+    let url = "http://hidden-chamber-59565.herokuapp.com/voter/"+userName+"/vote"
+    let postData = {name:String};
+    postData.name=data;
+
+    return this.http.post(url, postData, options)
                .map(this.extractData)
 }
 extractData(res: Response) {
-  let body = res.json();
+  let body = res.json()
   return body || {};
 }
 

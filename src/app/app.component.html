@@ -9,19 +9,18 @@
               <input type="text" [(ngModel)]="usrName" class="form-control" >
             </div>
             <hr>
-            <button type="button" (click)="usrNameAction()" class="btn btn-info">Start Voting.. <span class="glyphicon glyphicon-check"></span></button>
+            <button type="button" (click)="usrNameAction()" class="btn btn-info">Start Voting.. <span class="glyphicon glyphicon-user"></span></button>
           </div>
         </div>
     </div>
   </div>
-
 <div class="panel panel-primary" *ngIf="showData" style="width:70%; margin:auto">
-  <div class="panel-heading"> Latest Results</div>
-  <div class="panel-body">
-          <h3><span class="glyphicon glyphicon-check"></span> For Item:{{usrName}}  Votes : {{votes}} </h3>
-  <div class="well-sm">
-    <button (click)="loadUser()">Load profile</button>
-    {{ user | json }}
-  </div>
-  </div>
+  <app-items [items]=items [userName]=usrName></app-items>
+
+  <button type="button" (click)="userChangeAction()" class="btn btn-info center" style="margin-left: 2%; margin-right: auto;">Change user <span class="glyphicon glyphicon-user"></span></button>
+
+</div>
+
+<div class="panel panel-primary" *ngIf="postRes" style="width:70%; margin:auto">
+{{postRes.children}}
 </div>

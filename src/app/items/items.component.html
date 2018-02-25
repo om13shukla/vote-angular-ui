@@ -1,0 +1,30 @@
+<div class="alert alert-danger" style="text-align: center;" *ngIf=errors>
+  {{errors}}</div>
+
+    <div class="well well-lg">
+          <h3><span class="glyphicon glyphicon-check"></span> Today's polls </h3>
+    <div class="well">
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Votes</th>
+        <th>Click here</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.name}}</td>
+        <td>{{item.votes}}</td>
+        <td><button class="btn btn-info" (click)="sendVote(item)">Vote</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+       	
+  </div>
+
+  </div>
+
+

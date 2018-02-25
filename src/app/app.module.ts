@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { AppService } from './appService';
 import { Http, Response } from '@angular/http';
 import {HttpModule} from '@angular/http';
+import { ItemsComponent } from './items/items.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ItemsComponent
   ],
   imports: [
       BrowserModule,

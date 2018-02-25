@@ -20,17 +20,31 @@ export class AppComponent {
   name = "Vishwa";
   votes =20;
   user = {};
-  items:Item[];
+  items = [];
+  postRes={};
   constructor(private appService: AppService) { }
 
   usrNameAction(){
-    console.log("UserName = "+this.usrName)
-    this.loadItems()
+    this.loadItems();
     this.showForm = false;
     this.showData = true;
   }
+
   loadItems() {
-    this.appService.getItems().subscribe(data => this.user = data);
+    this.appService.getItems().subscribe(data => this.items = data);
+    console.log("items"+ this.items.toString());
   }
 
+  sendVote(item){
+   this.appService.addVote(this.usrName,item.name).subscribe(data => this.postRes = data);
+   this.loadItems();
+  }
+
+  userChangeAction(){
+
+    this.showForm = true;
+    this.showData = false;
+    console.log("UserName = "+this.usrName);
+    this.loadItems();
+  }
 }
